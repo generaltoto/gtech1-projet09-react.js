@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * gemstone router.
+ * article router.
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::gemstone.gemstone');
+module.exports = createCoreRouter('api::article.article');

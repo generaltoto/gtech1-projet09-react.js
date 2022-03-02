@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- *  gemstone controller
+ *  article controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::gemstone.gemstone');
+module.exports = createCoreController('api::article.article');
