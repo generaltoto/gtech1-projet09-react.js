@@ -18,7 +18,7 @@ class Menu extends Component {
               height="30"
               className="d-inline-block align-top"
             />{' '}
-          React Bootstrap
+          Les Perles
           </Navbar.Brand>
         </Container>
       </Navbar>

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Menu from './components/Menu';
+import {
+  Container
+} from 'react-bootstrap'
 
 class Home extends Component {
   constructor(props) {
@@ -11,7 +14,12 @@ class Home extends Component {
 
   render(){
       return (
-        <Menu />
+        <div>
+          <Menu />
+          <Container>
+            
+          </Container>
+        </div>
       );
   }
 }
