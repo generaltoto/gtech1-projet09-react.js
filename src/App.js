@@ -11,12 +11,41 @@ import Store from './Store';
 
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      stone : [],
+      cart : [],
+      loading:true
+    }
+  };
+
+  componentDidMount = async () => {
+    const reponse = await fetch('http://localhost:1337/api/gemtsone',{method:'GET', headers: {'Accept': 'application/json', 'Content-Type':'application/json'}})
+    const stones = await reponse.json()
+    this.setState({stones:stones, loading:false})
+  }
+
+  addArticle = (stone) =>{
+    this.setState({
+      cart:[
+        ...this.state.cart,
+        stone
+      ]
+    });
+  }
+
+
   render(){
   return (
       <Router>
         <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route exact path='/store' element={<Store />} />
+          <Route exact path='/' element={<Home cart={this.state.cart} />} /> {/*mettre en paramètres les articles*/}
+          <Route exact path='/store' element={<Store stone={this.state.stone} 
+          loading={this.state.loading} 
+          cart={this.state.cart} 
+          addArticle={this.addArticle} />} />
         </Routes>
       </Router>
   )

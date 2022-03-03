@@ -3,6 +3,7 @@ import {
   Navbar,
   Container
 } from 'react-bootstrap'
+import { Link } from "react-router-dom";
 
 class Menu extends Component {
   
@@ -18,8 +19,10 @@ class Menu extends Component {
               height="30"
               className="d-inline-block align-top"
             />{' '}
-          React Bootstrap
+          Les Perles
           </Navbar.Brand>
+          <Link to="/home">Home</Link> {/*Links to pages, not good pass*/}
+          <Link to="/store">Store</Link>
         </Container>
       </Navbar>
     )
