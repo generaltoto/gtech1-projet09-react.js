@@ -2,26 +2,38 @@
 import Menu from './components/Menu';
 import {
   Container,
-  Spinner
+  Spinner,
+  Row,
+  Col
 } from 'react-bootstrap'
 import Article from './components/Article';
+import Pub from './components/Pub';
 
 
 function Store(props){
-    if(props.loading){
+   if(props.loading){ {/*Loader*/}
       return <Spinner animation="grow" />
     }
-    {/*Loader*/}
       return (
         <>
           <Menu />
-          <h1>Store</h1>
-          <Container>
-            {/*pour afficher en tableau simple les articles*/}
-            {this.state.stone.data && this.state.stone.data.map((stone, i)=><div key={i}>{stone.attribute.name}</div>)}
-            <Article cart={props.state.cart} 
-            addArticle={props.addArticle}/> {/*Mettre les artciles en paramètres*/}
-          </Container>
+          <Row>
+            <Col md={1}></Col>
+            <Col md={1}>{/*<Pub />*/}</Col>
+            <Col xs={12} md={2}>
+              <p>Ici les filtres soon</p>
+            </Col>
+
+            <Col xs={12} md={8}>
+              <Row>
+                {/*pour afficher en tableau simple les articles*/}
+                {props.stone.data && props.stone.data.map((stone, i)=>
+                  <Col><Article stone={stone} addArticle={props.addArticle}/></Col>
+                )}
+                {/*Mettre les artciles en paramètres*/}
+              </Row>
+            </Col>
+          </Row>
         </>
       );
   }

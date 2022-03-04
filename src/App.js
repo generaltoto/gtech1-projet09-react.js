@@ -6,7 +6,6 @@ import {
   Routes
 } from 'react-router-dom'
 
-import Home from './Home';
 import Store from './Store';
 
 
@@ -22,9 +21,9 @@ class App extends Component {
   };
 
   componentDidMount = async () => {
-    const reponse = await fetch('http://localhost:1337/api/gemtsone',{method:'GET', headers: {'Accept': 'application/json', 'Content-Type':'application/json'}})
-    const stones = await reponse.json()
-    this.setState({stones:stones, loading:false})
+    const reponse = await fetch('http://localhost:1337/api/gemstones',{method:'GET', headers: {'Accept': 'application/json', 'Content-Type':'application/json'}})
+    const stone = await reponse.json()
+    this.setState({stone:stone, loading:false},()=>console.log(this.state.stone))
   }
 
   addArticle = (stone) =>{
@@ -33,22 +32,23 @@ class App extends Component {
         ...this.state.cart,
         stone
       ]
-    });
+    },()=>console.log(this.state.cart));
+    
   }
 
 
   render(){
-  return (
+    return (
       <Router>
         <Routes>
-          <Route exact path='/' element={<Home cart={this.state.cart} />} /> {/*mettre en paramètres les articles*/}
-          <Route exact path='/store' element={<Store stone={this.state.stone} 
+          <Route exact path='/' element={<Store 
+          stone={this.state.stone} 
           loading={this.state.loading} 
           cart={this.state.cart} 
           addArticle={this.addArticle} />} />
         </Routes>
       </Router>
-  )
+    )
   }
 }
 export default App;
