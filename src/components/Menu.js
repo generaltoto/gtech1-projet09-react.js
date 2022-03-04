@@ -1,30 +1,30 @@
 import { Component } from "react"
 import {
+  Nav,
   Navbar,
-  Container
+  Container,
 } from 'react-bootstrap'
 import { Link } from "react-router-dom";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 class Menu extends Component {
   
   render(){
-    return(
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">
-            <img
-              alt=""
-              src="/logo.svg"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />{' '}
-          Les Perles
-          </Navbar.Brand>
-          <Link to="/home">Home</Link> {/*Links to pages, not good pass*/}
-          <Link to="/store">Store</Link>
-        </Container>
-      </Navbar>
+    return (
+      <>
+        <Navbar className="navbar">
+          <Container>
+            <Navbar.Brand><Link to='/' className="navbar-text">MineStone</Link></Navbar.Brand>
+            <Nav className="navbar-icons">
+              <Link className="navbar-icon" to='/Store'><FontAwesomeIcon icon={faCartShopping} size='2x' /></Link>
+            </Nav>
+          </Container>
+        </Navbar>
+      </>
+      
+      
     )
   }
 }

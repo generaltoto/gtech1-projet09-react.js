@@ -11,7 +11,6 @@ function Store(props){
     if(props.loading){
       return <Spinner animation="grow" />
     }
-    {/*Loader*/}
       return (
         <>
           <Menu />
