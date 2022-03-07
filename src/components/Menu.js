@@ -3,6 +3,11 @@ import {
   Nav,
   Navbar,
   Container,
+  Dropdown,
+  Button,
+  ButtonGroup,
+  Row,
+  Col
 } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 
@@ -14,14 +19,24 @@ class Menu extends Component {
   render(){
     return (
       <>
-        <Navbar className="navbar">
-          <Container>
-            <Navbar.Brand><Link to='/' className="navbar-text">MineStone</Link></Navbar.Brand>
-            <Nav className="navbar-icons">
+        <Nav className="justify-content-end navbar" activeKey="/home">
+          <Nav.Item>
+            <Link to='/' className="navbar-text">MineStone</Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Dropdown as={ButtonGroup}>
               <Link className="navbar-icon" to='/Store'><FontAwesomeIcon icon={faCartShopping} size='2x' /></Link>
-            </Nav>
-          </Container>
-        </Navbar>
+
+              <Dropdown.Toggle className="dropdown-toggle" id="dropdown-split-basic" />
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Nav.Item>
+        </Nav>
       </>
       
       
