@@ -26,6 +26,7 @@ border-radius: 10px;
 .navbar-text, .navbar-icon {
   color: rgb(211, 211, 211) !important;
   text-decoration: none !important;
+  font-weight: bold;
 
   position: relative;
 
@@ -33,18 +34,17 @@ border-radius: 10px;
 }
 
 .navbar-text {
-  font-weight: bold;
   font-size: 45px;
- 
-  margin-left: 50vh;
-  margin-bottom: 10px !important; /* TO FIX */
+  margin-right: 80vh;
 }
 
-.navbar-icon {
-  margin-left: 95%;
+.dropdown-toggle {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  margin-right: 50px;
 }
 
-.navbar-text:hover, .navbar-icon:hover {
+.navbar-text:hover, .navbar-icon:hover, .dropdown-toggle:hover {
   color: rgb(136, 149, 209) !important;
 }
 
