@@ -19,7 +19,7 @@ class App extends Component {
   };
 
   componentDidMount = async () => {
-    const reponse = await fetch('http://localhost:1337/api/gemstones',{method:'GET', headers: {'Accept': 'application/json', 'Content-Type':'application/json'}})
+    const reponse = await fetch('http://localhost:1337/api/gemstones?populate=*',{method:'GET', headers: {'Accept': 'application/json', 'Content-Type':'application/json'}})
     const stone = await reponse.json()
     this.setState({stone:stone, loading:false},()=>console.log(this.state.stone))
   }

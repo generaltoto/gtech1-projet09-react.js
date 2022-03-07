@@ -4,6 +4,7 @@ import {
   Card,
   Button,
   Modal,
+  Divider
 } from 'react-bootstrap'
 
 function Article(props){
@@ -12,14 +13,15 @@ function Article(props){
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
     return(
       <>
-        <Card style={{ width: '20rem' }}>
-          <Card.Img variant="top" src={props.stone.attributes.img} />
+        <Card style={{ width: '25rem' }}>
+          <Card.Header>
+            <Card.Img className='img-article' variant="top" src={props.stone.attributes.img.data && "http://localhost:1337"+props.stone.attributes.img.data.attributes.url} />
+          </Card.Header>
           <Card.Body>
             <Card.Title>{props.stone.attributes.name}</Card.Title>
-            <Button variant="primary" onClick={handleShow}>Show more</Button>
+            <Button variant="outline-info" onClick={handleShow}>Show more</Button>
           </Card.Body>
         </Card>
 

@@ -19,8 +19,8 @@ function Store(props){
           <Menu />
           <Row>
             <Col md={1}></Col>
-            <Col md={1}>{/*<Pub />*/}</Col>
-            <Col xs={12} md={2}>
+            <Col md={1}><Pub /></Col>
+            <Col xs={12} md={2} className='filters'>
               <p>Ici les filtres soon</p>
             </Col>
 
@@ -28,7 +28,7 @@ function Store(props){
               <Row>
                 {/*pour afficher en tableau simple les articles*/}
                 {props.stone.data && props.stone.data.map((stone, i)=>
-                  <Col><Article stone={stone} addArticle={props.addArticle}/></Col>
+                  <Col className='article'><Article stone={stone} addArticle={props.addArticle}/></Col>
                 )}
                 {/*Mettre les artciles en paramètres*/}
               </Row>

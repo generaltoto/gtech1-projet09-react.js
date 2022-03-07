@@ -47,3 +47,28 @@ border-radius: 10px;
 .navbar-text:hover, .navbar-icon:hover {
   color: rgb(136, 149, 209) !important;
 }
+
+.article {
+  margin: 10px !important;
+}
+
+.img-article {
+  height: 275px;
+}
+
+.card {
+  border: 3px solid rgba(0,0,0,.4) !important;
+}
+
+.card-title {
+  font-weight: bold !important;
+}
+
+.card-body {
+  background: linear-gradient(-160deg, rgb(255, 255, 255) 1%, rgb(76, 94, 99) 100%);
+}
+
+.filters {
+  border-left: 2px solid rgba(0,0,0,1);
+  border-right: 2px solid rgba(0,0,0,1);
+}
