@@ -1,10 +1,8 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {React, Component} from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Store from './Store';
 

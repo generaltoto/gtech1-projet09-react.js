@@ -1,5 +1,6 @@
 import { Component } from "react"
 import {
+  Nav,
   Navbar,
   Container, 
   Row, 
@@ -7,24 +8,25 @@ import {
 } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+
 class Menu extends Component {
   
   render(){
-    return(
-        <Navbar bg="dark" variant="dark">
+    return (
+      <>
+        <Navbar className="navbar">
           <Container>
-            <Navbar.Brand href="#home">
-              <img
-                alt=""
-                src="/logo.png"
-                width="30"
-                height="50"
-                className="d-inline-block align-top"
-              />{' '}
-            <h1>MineStone</h1>
-            </Navbar.Brand>
+            <Navbar.Brand><Link to='/' className="navbar-text">MineStone</Link></Navbar.Brand>
+            <Nav className="navbar-icons">
+              <Link className="navbar-icon" to='/Store'><FontAwesomeIcon icon={faCartShopping} size='2x' /></Link>
+            </Nav>
           </Container>
         </Navbar>
+      </>
+      
+      
     )
   }
 }
