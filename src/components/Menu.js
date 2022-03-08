@@ -20,7 +20,7 @@ function Menu(props) {
         </Nav.Item>
         <Nav.Item className="justify-content-end">
           <Dropdown>
-            <Dropdown.Toggle className="dropdown-toggle" id='dropdown-split-basic'>
+            <Dropdown.Toggle className="dropdown-toggle">
               <Link className="navbar-icon" to='/Store'><FontAwesomeIcon icon={faCartShopping} size='2x' /></Link>
             </Dropdown.Toggle>
 
@@ -28,10 +28,10 @@ function Menu(props) {
               <Dropdown.Header className="dropdown-header">Your Cart</Dropdown.Header>
               <Container>
                 <Row>
-                {props.stone.data && props.stone.data.map((stone, i)=>
-                  <Col className='article'><ArticleInCart stone={stone}/></Col>)}
+                {/* {props.stone.data && props.stone.data.map((stone, i)=>
+                  <Col className='article'><ArticleInCart stone={stone}/></Col>)} */}
                   
-                  {/* <button onClick={() => props.getArticle()}> Get Data </button>*/}
+                  <button onClick={() => props.getArticle()}> Get Data </button>
                 </Row>
               </Container>
             </Dropdown.Menu>
