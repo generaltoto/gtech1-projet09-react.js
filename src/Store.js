@@ -48,7 +48,9 @@ function Store(props){
                   */}
                   {/*pour afficher en tableau simple les articles*/}
                   {props.stone.data && props.stone.data.map((stone, i)=>
-                    <Col className='article'><Article stone={stone} addArticle={props.addArticle}/></Col>
+                    <Col className='article'>
+                      <Article stone={stone} addArticle={props.addArticle}/>
+                    </Col>
                   )}
                   {/*Mettre les artciles en paramètres*/}
                 </Row>
