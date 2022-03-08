@@ -1,29 +1,51 @@
+:root {
+  --hover: rgb(151, 166, 233);
+  --navbarFooter: rgba(45, 52, 54, 0.6);
+  --hoverEffectTime: 0.45s;
+  --dropdownSize: auto;
+}
+
 .navbar {
-  background: linear-gradient(180deg, rgb(45, 52, 54) 85%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(180deg, var(--navbarFooter) 85%, white 100%);
   min-height: 8.5vh;
 }
 
 .navbar-text, .navbar-icon {
-  color: rgb(211, 211, 211) !important;
+  color: rgb(238, 238, 238) !important;
   text-decoration: none !important;
   font-weight: bold;
 
   position: relative;
 
-  transition: 0.45s;
+  transition: var(--hoverEffectTime);
 }
 
 .navbar-text {
   font-size: 45px;
-  margin-right: 80vh;
+  margin-right: 81vh;
+}
+
+.dropdown {
+  width:var(--dropdownSize) !important;
 }
 
 .dropdown-toggle {
   background-color: transparent !important;
   border-color: transparent !important;
-  margin-right: 50px;
+  margin-right: 2vh;
+}
+
+.dropdown-header {
+  font-size: 20px !important;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.btn-check:active+.btn-primary:focus, .btn-check:checked+.btn-primary:focus, .btn-primary.active:focus, .btn-primary:active:focus, .show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: none !important;
+  /* histoire de lutter contre les preset de bootstrap react */
 }
 
 .navbar-text:hover, .navbar-icon:hover, .dropdown-toggle:hover {
-  color: rgb(136, 149, 209) !important;
+  color: var(--hover) !important;
 }
