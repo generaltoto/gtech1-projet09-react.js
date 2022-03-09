@@ -16,7 +16,7 @@ function Article(props){
       <>
         <Card style={{ width: '13rem'}}>
           <Card.Header> 
-            <Card.Img className='img-article' variant="top" src={props.stone.attributes.img.data && "http://localhost:1337"+props.stone.attributes.img.data.attributes.url} />
+            <Card.Img className='img-article' variant="top" src={props.stone.attributes.img && "http://localhost:1337"+props.stone.attributes.img.data.attributes.url} />
           </Card.Header>
           <Card.Body onClick={handleShow} className='hover'>
             <Card.Title className='center-align'>{props.stone.attributes.name}<p>{props.stone.attributes.price}€</p></Card.Title>

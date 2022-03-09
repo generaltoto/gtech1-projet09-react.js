@@ -3,10 +3,8 @@ import { Card } from 'react-bootstrap'
 function ArticleInCart(props){
   return(
     <Card>
-      <Card.Body>
-        <Card.Title>{props.stone}</Card.Title>
-        <Card.Text>{props.stone.price}</Card.Text>
-      </Card.Body>
+      <Card.Header> <Card.Title>{props.cart.attributes.name}</Card.Title> </Card.Header>
+      <Card.Body> <Card.Text>{props.cart.attributes.price}</Card.Text> </Card.Body>
     </Card>
   );
 }

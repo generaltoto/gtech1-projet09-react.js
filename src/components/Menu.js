@@ -28,11 +28,11 @@ function Menu(props) {
               <Dropdown.Header className="dropdown-header">Your Cart</Dropdown.Header>
               <Container>
                 <Row>
-                {props.cart.data && props.cart.data.map((cart, i)=>
-                  <Col className='article'><ArticleInCart stone={cart}/></Col>)}
+                {props.getArticle() && props.getArticle().attributes.map((data)=>
+                  <Col className='article'><ArticleInCart cart={data}/></Col>)}
                   
-                  <button onClick={() => props.getArticle()}> Check Article </button>
-                  <button onClick={() => props.addArticle()}> Add Article</button>
+                  <button onClick={() => console.log(props.getArticle())}> Check Article </button>
+                  <button onClick={() => localStorage.clear()}> Clear Cart </button>
                 </Row>
               </Container>
             </Dropdown.Menu>

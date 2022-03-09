@@ -5,6 +5,7 @@ import {React, Component} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Store from './Store';
+import { clear } from '@testing-library/user-event/dist/clear';
 
 
 class App extends Component {
@@ -30,21 +31,19 @@ class App extends Component {
         ...this.state.cart,
         stone
       ]
-    },()=>console.log(this.state.cart));
-    sessionStorage.setItem('cart', JSON.stringify(this.cart))
+    },()=>{
+      console.log(this.state.cart)
+      localStorage.setItem('cart', JSON.stringify(this.state.cart))
+    });
   }
-  
-  // addArticle = () =>{
-  //   let obj = {name: this.state.stone, price: this.state.price};
-  //   localStorage.setItem('stone', JSON.stringify(obj));
-  // }
 
   getArticle() {
-    let data = sessionStorage.getItem('stone');
-    data = JSON.parse(data);
-    console.log(data);
+    if(!localStorage.getItem('cart')){
+      return []
+    }
+    let data = JSON.parse(localStorage.getItem('cart'));
+    return data;
   }
-
 
   render(){
     return (
@@ -54,7 +53,9 @@ class App extends Component {
             stone={this.state.stone} 
             loading={this.state.loading} 
             cart={this.state.cart} 
-            addArticle={this.addArticle} />}
+            addArticle={this.addArticle}
+            getArticle={this.getArticle}
+          />}
           />
         </Routes>
       </Router>

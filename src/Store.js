@@ -58,7 +58,7 @@ function Store(props){
                     } else if (stones.name.toLowerCase().includes(query.toLowerCase())) {
                       return stones;
                     }}).map((stones, i)=>(
-                      <Col className='article'>
+                      <Col className='article' key={i}>
                         <Article stone={stones} addArticle={props.addArticle}/>
                       </Col>
                     ))}

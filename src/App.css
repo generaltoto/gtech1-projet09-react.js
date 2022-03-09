@@ -77,7 +77,8 @@
   font-weight: bold;
 }
 
-.btn-check:active+.btn-primary:focus, .btn-check:checked+.btn-primary:focus, .btn-primary.active:focus, .btn-primary:active:focus, .show>.btn-primary.dropdown-toggle:focus {
+
+.btn-check:active+.btn-primary:focus, .btn-check:checked+.btn-primary:focus, .btn-primary.active:focus, .btn-primary:active:focus, .show>.btn-primary.dropdown-toggle:focus, .btn-check:focus+.btn, .btn:focus {
   box-shadow: none !important;
   /* histoire de lutter contre les preset de bootstrap react */
 }
