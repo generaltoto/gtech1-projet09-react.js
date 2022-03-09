@@ -3,6 +3,7 @@ import {
   Card,
   Button,
   Modal,
+  Divider
 } from 'react-bootstrap'
 
 function Article(props){
