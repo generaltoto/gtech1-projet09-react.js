@@ -28,8 +28,8 @@ function Menu(props) {
               <Dropdown.Header className="dropdown-header">Your Cart</Dropdown.Header>
               <Container>
                 <Row>
-                {props.getArticle() && props.getArticle().attributes.map((data)=>
-                  <Col className='article'><ArticleInCart cart={data}/></Col>)}
+                {props.cart.length>0 && props.cart.map((data, i)=>(
+                  <Col className='article' key={i}><ArticleInCart cart={data}/></Col>))}
                   
                   <button onClick={() => console.log(props.getArticle())}> Check Article </button>
                   <button onClick={() => localStorage.clear()}> Clear Cart </button>
