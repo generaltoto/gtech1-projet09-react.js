@@ -21,15 +21,15 @@ function Menu(props) {
         <Nav.Item className="justify-content-end">
           <Dropdown>
             <Dropdown.Toggle className="dropdown-toggle">
-              <Link className="navbar-icon" to='/Store'><FontAwesomeIcon icon={faCartShopping} size='2x' /></Link>
+              <Link className="navbar-icon" to={'/'}><FontAwesomeIcon icon={faCartShopping} size='2x' /></Link>
             </Dropdown.Toggle>
 
             <Dropdown.Menu className="dropdown">
               <Dropdown.Header className="dropdown-header">Your Cart</Dropdown.Header>
               <Container>
                 <Row>
-                {props.getArticle() && props.getArticle().attributes.map((data)=>
-                  <Col className='article'><ArticleInCart cart={data}/></Col>)}
+                {props.getArticle() && props.getArticle().map((data)=>(
+                  <Col className='article'><ArticleInCart cart={data}/></Col>))}
                   
                   <button onClick={() => console.log(props.getArticle())}> Check Article </button>
                   <button onClick={() => localStorage.clear()}> Clear Cart </button>
