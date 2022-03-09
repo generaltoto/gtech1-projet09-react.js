@@ -1,3 +1,23 @@
+:root {
+  /* Change those variables to tune every colors and animations */
+  --tittleFont: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  --h1Size: 175px;
+  --h2Size: 75px;
+
+  --navbarColor: rgba(255, 255, 255, 0.6);
+  --footerColor: rgba(44, 51, 53, 0.6);
+  --navbarTextColor: rgb(75, 75, 75);
+
+  --cardBorder: 3px solid rgba(0,0,0,.4);
+  --cardButton: rgb(127, 255, 212);
+
+  --hoverEffectTime: 0.45s;
+  --hoverNav: var(--cardButton);
+  --hoverCardButton: #248991;
+
+  scroll-behavior: smooth !important;
+}
+
 /*Custom Scrollbar*/
 ::-webkit-scrollbar {
   width: 10px;
@@ -7,49 +27,68 @@
   background: #999C99;
 }
 ::-webkit-scrollbar-thumb {
-border-radius: 10px;
+  border-radius: 10px;
   background: #555;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #434343;
 }
 
-.App {
-  text-align: center;
-}
+
+/* NAVBAR */
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: var(--navbarColor);
   position: sticky !important;
   top: 0 !important;
   z-index: 1 !important;
 }
 
 .navbar-text, .navbar-icon {
-  color: rgb(75, 75, 75) !important;
+  color: var(--navbarTextColor) !important;
   text-decoration: none !important;
   font-weight: bold;
 
   position: relative;
 
-  transition: 0.45s;
+  transition: var(--hoverEffectTime);
 }
 
 .navbar-text {
   font-size: 45px;
-  margin-right: 80vh;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-right: 81vh;
+}
+
+
+/* DROPDOWN */
+
+.dropdown {
+  width: auto !important;
 }
 
 .dropdown-toggle {
   background-color: transparent !important;
   border-color: transparent !important;
-  margin-right: 50px;
+  margin-right: 2vh;
+}
+
+.dropdown-header {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
+
+.btn-check:active+.btn-primary:focus, .btn-check:checked+.btn-primary:focus, .btn-primary.active:focus, .btn-primary:active:focus, .show>.btn-primary.dropdown-toggle:focus, .btn-check:focus+.btn, .btn:focus {
+  box-shadow: none !important;
+  /* histoire de lutter contre les preset de bootstrap react */
 }
 
 .navbar-text:hover, .navbar-icon:hover, .dropdown-toggle:hover {
-  color: rgb(180, 105, 223) !important;
+  color: var(--hoverNav) !important;
 }
+
+
+/* ARTICLE */
 
 .article {
   margin: 10px !important;
@@ -72,9 +111,9 @@ border-radius: 10px;
 }
 
 .card-button {
-  color: aquamarine !important;
+  color: var(--cardButton) !important;
   border: 0px !important;
-  background-color: rgba(000, 000, 000,0) !important;
+  background-color: black !important;
   margin: 0px !important;
   padding: 1px !important;
 }
@@ -96,7 +135,7 @@ border-radius: 10px;
 
 .hover:hover {
   color: #248991;
-  transition: 0.35s;
+  transition: var(--hover);
 }
 
 p {
@@ -107,12 +146,12 @@ p {
 }
 
 h1 {
-  font-size: 175px !important;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: var(--h1Size) !important;
+  font-family: var(--tittleFont);
 }
 
 h2 {
-  font-size: 75px !important;
+  font-size: var(--h2Size) !important;
 }
 
 h3 {
@@ -123,13 +162,12 @@ h3 {
 h4 {
   text-align: center !important;
   margin: 20px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: var(--tittleFont);
 }
 
 .all-articles {
   height: 575px;
   overflow-y: scroll;
-  scroll-behavior: smooth !important;
   border: 1px solid rgba(0,0,0,.5);
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
@@ -138,12 +176,12 @@ h4 {
 .footer {
   margin-top: 250px;
   height: 350px;
-  background-color: #37474f;
+  background-color: var(--footerColor);
 }
 
 .bot-footer {
   height: 50px;
-  background-color: #263238;
+  background-color: var(--footerColor);
 }
 
 .modal-article {

@@ -1,4 +1,3 @@
-
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 import {
@@ -33,7 +32,12 @@ function Store(props){
   }
       return (
         <>
-          <Menu />
+          <Menu 
+            cart={props.cart} 
+            stone={props.stone}
+            addArticle={props.addArticle}
+            getArticle={props.getArticle}
+          />
           <Parallax
             blur={5}
             bgImage={require('./gemmes.jpg')}

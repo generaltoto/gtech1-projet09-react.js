@@ -1,24 +1,17 @@
-import { Component } from "react"
-import { Container } from "react-bootstrap";
 
+function Footer() {
+  return (
+    <>
+      <div id="footer">
+        <div className='footer'>
 
-class Footer extends Component {
-  render(){
-    return (
-      <>
-        <div id="footer">
-          <div className='footer'>
-
-          </div>
-          <div className="bot-footer">
-
-          </div>
         </div>
-      </>
-      
-      
-    )
-  }
+        <div className="bot-footer">
+
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default Footer;

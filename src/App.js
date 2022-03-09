@@ -5,6 +5,7 @@ import {React, Component} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Store from './Store';
+import { clear } from '@testing-library/user-event/dist/clear';
 
 
 class App extends Component {
@@ -20,30 +21,42 @@ class App extends Component {
 
   componentDidMount = async () => {
     const reponse = await fetch('http://localhost:1337/api/gemstones?populate=*',{method:'GET', headers: {'Accept': 'application/json', 'Content-Type':'application/json'}})
-    const stone = await reponse.json()
-    this.setState({stone:stone, loading:false},()=>console.log(this.state.stone))
+    const stones = await reponse.json()
+    this.setState({stone:stones, loading:false})
   }
 
-  addArticle = (stone) =>{
+  addArticle = async (stone) =>{
     this.setState({
       cart:[
         ...this.state.cart,
         stone
       ]
-    },()=>console.log(this.state.cart));
-    
+    },()=>{
+      console.log(this.state.cart)
+      localStorage.setItem('cart', JSON.stringify(this.state.cart))
+    });
   }
 
+  getArticle() {
+    if(!localStorage.getItem('cart')){
+      return []
+    }
+    let data = JSON.parse(localStorage.getItem('cart'));
+    return data;
+  }
 
   render(){
     return (
       <Router>
         <Routes>
           <Route exact path='/' element={<Store 
-          stone={this.state.stone} 
-          loading={this.state.loading} 
-          cart={this.state.cart} 
-          addArticle={this.addArticle} />} />
+            stone={this.state.stone} 
+            loading={this.state.loading} 
+            cart={this.state.cart} 
+            addArticle={this.addArticle}
+            getArticle={this.getArticle}
+          />}
+          />
         </Routes>
       </Router>
     )
