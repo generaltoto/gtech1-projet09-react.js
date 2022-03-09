@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Store from './Store';
 import Menu from './components/Menu';
+import Footer from './components/Footer';
 
 
 class App extends Component {
@@ -25,13 +26,14 @@ class App extends Component {
     this.setState({stone:stones, loading:false})
   }
 
-  addArticle = (stone) =>{
+  addArticle = async (stone) =>{
     this.setState({
       cart:[
         ...this.state.cart,
         stone
       ]
-    });
+    },()=>console.log(this.state.cart));
+    sessionStorage.setItem('cart', JSON.stringify(this.cart))
   }
   
   // addArticle = () =>{
@@ -42,7 +44,7 @@ class App extends Component {
   getArticle() {
     let data = sessionStorage.getItem('stone');
     data = JSON.parse(data);
-    console.log(data.name);
+    console.log(data);
   }
 
 
@@ -50,17 +52,19 @@ class App extends Component {
     return (
       <Router>
         <Routes>
-          <Route path='/' element={<Menu 
+          <Route exact path='/' element={<Menu 
             cart={this.state.cart} 
             stone={this.state.stone}
             addArticle={this.addArticle}
             getArticle={this.getArticle}/>}
           />
-          <Route path='/store' element={<Store stone={this.state.stone} 
+          <Route exact path='/' element={<Store 
+            stone={this.state.stone} 
             loading={this.state.loading} 
             cart={this.state.cart} 
-            addArticle={this.addArticle} />} 
+            addArticle={this.addArticle} />}
           />
+          <Route exact path='/' element={<Footer/>} />
         </Routes>
       </Router>
     )
