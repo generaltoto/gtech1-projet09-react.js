@@ -4,8 +4,9 @@
   --h1Size: 175px;
   --h2Size: 75px;
 
-  --navbarFooter: rgba(44, 51, 53, 0.6);
-  --navbarTextColor: rgb(238, 238, 238);
+  --navbarColor: rgba(255, 255, 255, 0.6);
+  --footerColor: rgba(44, 51, 53, 0.6);
+  --navbarTextColor: rgb(75, 75, 75);
 
   --cardBorder: 3px solid rgba(0,0,0,.4);
   --cardButton: rgb(127, 255, 212);
@@ -37,8 +38,10 @@
 /* NAVBAR */
 
 .navbar {
-  background: var(--navbarFooter);
-  min-height: 8.5vh;
+  background-color: var(--navbarColor);
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1 !important;
 }
 
 .navbar-text, .navbar-icon {
@@ -172,12 +175,12 @@ h4 {
 .footer {
   margin-top: 250px;
   height: 350px;
-  background-color: var(--navbarFooter);
+  background-color: var(--footerColor);
 }
 
 .bot-footer {
   height: 50px;
-  background-color: var(--navbarFooter);
+  background-color: var(--footerColor);
 }
 
 .modal-article {
@@ -190,4 +193,8 @@ body {
 
 .center-align {
   text-align: center !important;
+}
+
+.form {
+  margin-top: 20px !important;
 }
