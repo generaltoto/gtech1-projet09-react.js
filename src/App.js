@@ -5,8 +5,6 @@ import {React, Component} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Store from './Store';
-import Menu from './components/Menu';
-import Footer from './components/Footer';
 
 
 class App extends Component {
@@ -52,19 +50,12 @@ class App extends Component {
     return (
       <Router>
         <Routes>
-          <Route exact path='/' element={<Menu 
-            cart={this.state.cart} 
-            stone={this.state.stone}
-            addArticle={this.addArticle}
-            getArticle={this.getArticle}/>}
-          />
           <Route exact path='/' element={<Store 
             stone={this.state.stone} 
             loading={this.state.loading} 
             cart={this.state.cart} 
             addArticle={this.addArticle} />}
           />
-          <Route exact path='/' element={<Footer/>} />
         </Routes>
       </Router>
     )

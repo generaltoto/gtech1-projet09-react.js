@@ -16,7 +16,12 @@ function Store(props){
    
       return (
         <>
-          <Menu />
+          <Menu 
+            cart={this.props.cart} 
+            stone={this.props.stone}
+            addArticle={this.props.addArticle}
+            getArticle={this.props.getArticle}
+          />
           <Parallax
             blur={2}
             bgImage={require('./gemmes.jpg')}

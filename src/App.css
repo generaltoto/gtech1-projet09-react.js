@@ -1,6 +1,9 @@
 :root {
   /* Change those variables to tune every colors and animations */
   --tittleFont: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  --h1Size: 175px;
+  --h2Size: 75px;
+
   --navbarFooter: rgba(44, 51, 53, 0.6);
   --navbarTextColor: rgb(238, 238, 238);
 
@@ -23,7 +26,7 @@
   background: #999C99;
 }
 ::-webkit-scrollbar-thumb {
-border-radius: 10px;
+  border-radius: 10px;
   background: #555;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -104,7 +107,7 @@ border-radius: 10px;
 }
 
 .card-button {
-  color: aquamarine !important;
+  color: var(--cardButton) !important;
   border: 0px !important;
   background-color: black !important;
   margin: 0px !important;
@@ -140,12 +143,12 @@ p {
 }
 
 h1 {
-  font-size: 175px !important;
+  font-size: var(--h1Size) !important;
   font-family: var(--tittleFont);
 }
 
 h2 {
-  font-size: 75px !important;
+  font-size: var(--h2Size) !important;
 }
 
 h3 {
