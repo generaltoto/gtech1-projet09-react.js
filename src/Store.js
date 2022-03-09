@@ -2,14 +2,12 @@ import Menu from './components/Menu';
 import Footer from './components/Footer';
 import {
   Container,
-  Spinner,
   Row,
   Col,
   Form,
-  ListGroup,
 } from 'react-bootstrap'
 import Article from './components/Article';
-import { Parallax, Background } from 'react-parallax';
+import { Parallax } from 'react-parallax';
 
 
 function Store(props){
@@ -17,10 +15,10 @@ function Store(props){
       return (
         <>
           <Menu 
-            cart={this.props.cart} 
-            stone={this.props.stone}
-            addArticle={this.props.addArticle}
-            getArticle={this.props.getArticle}
+            cart={props.cart} 
+            stone={props.stone}
+            addArticle={props.addArticle}
+            getArticle={props.getArticle}
           />
           <Parallax
             blur={2}
