@@ -10,10 +10,13 @@ import {
   ListGroup,
 } from 'react-bootstrap'
 import Article from './components/Article';
-import { Parallax, Background } from 'react-parallax';
+import { Parallax } from 'react-parallax';
+import {useState} from "react";
 
 
 function Store(props){
+
+  const [query, setQuery] = useState("")
    
       return (
         <>
@@ -22,21 +25,21 @@ function Store(props){
             blur={2}
             bgImage={require('./gemmes.jpg')}
             bgImageAlt="gemstones"
-            strength={200}>
+            strength={500}>
             <div className='titles'>
               <h1>MineStone</h1>
               <h2>Make the stones yours</h2>
             </div>
             <div style={{ height: '250px' }} />
           </Parallax>
-          <div style={{ height: '100px' }}>
-            <h3>Get them</h3>
-          </div>
+          <div style={{ height: '100px' }} />
           <Row id='articles' className='canceled'>
             <Col xs={3} className='filters'>
               <h4>Add filters</h4>
-              <Form.Control className="me-auto" placeholder="Search ..." />
-              <Form.Label>Price</Form.Label>
+              <Form.Control className="me-auto form" placeholder="Search by name ..." onChange={event => setQuery(event.target.value)} />
+              <Form.Label className='form'>Price</Form.Label>
+              <Form.Range />
+              <Form.Label className='form'>Mohs</Form.Label>
               <Form.Range />
             </Col>
 
@@ -47,11 +50,16 @@ function Store(props){
                      <Spinner animation="grow" />
                   */}
                   {/*pour afficher en tableau simple les articles*/}
-                  {props.stone.data && props.stone.data.map((stone, i)=>
-                    <Col className='article'>
-                      <Article stone={stone} addArticle={props.addArticle}/>
-                    </Col>
-                  )}
+                  {props.stone.data && props.stone.data.filter(stones => {
+                    if (query === '') {
+                      return stones;
+                    } else if (stones.name.toLowerCase().includes(query.toLowerCase())) {
+                      return stones;
+                    }}).map((stones, i)=>(
+                      <Col className='article'>
+                        <Article stone={stones} addArticle={props.addArticle}/>
+                      </Col>
+                    ))}
                   {/*Mettre les artciles en paramètres*/}
                 </Row>
               </Container>

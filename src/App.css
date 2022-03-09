@@ -19,12 +19,14 @@ border-radius: 10px;
 }
 
 .navbar {
-  background: linear-gradient(-90deg, rgb(49, 45, 54) 85%, rgb(255, 255, 255) 100%);
-  min-height: 8.5vh;
+  background-color: rgba(255, 255, 255, 0.6);
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1 !important;
 }
 
 .navbar-text, .navbar-icon {
-  color: rgb(211, 211, 211) !important;
+  color: rgb(75, 75, 75) !important;
   text-decoration: none !important;
   font-weight: bold;
 
@@ -154,4 +156,8 @@ body {
 
 .center-align {
   text-align: center !important;
+}
+
+.form {
+  margin-top: 20px !important;
 }
