@@ -7,13 +7,13 @@ import {
   Row,
   Button
 } from 'react-bootstrap'
-import { useState } from 'react';
+import { useState } from 'react'
 
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 
-import CartDropdown from './CartDropdown';
+import CartDropdown from './CartDropdown'
 import ArticleInModal from './article/ArticleInModal'
 
 function Menu(props) {
@@ -54,9 +54,9 @@ function Menu(props) {
         </Button>
         <Button variant='outline-info' onClick={close}>Close</Button>
       </Modal.Footer>
-    </Modal>                 
+    </Modal>
     </>
-  )
+  );
 }
 
 export default Menu;
