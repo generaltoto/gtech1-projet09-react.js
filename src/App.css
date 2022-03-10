@@ -114,8 +114,10 @@ body {
 }
 
 .dropdown {
+  max-height: 500px !important;
   width: 400px !important;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .dropdown-header {
@@ -240,7 +242,6 @@ body {
   width: 80px !important;
   margin-left: auto;
 }
-
 
 /* FOOTER */
 
