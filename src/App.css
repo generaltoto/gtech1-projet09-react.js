@@ -184,10 +184,6 @@ h4 {
   background-color: var(--footerColor);
 }
 
-.modal-article {
-  max-width: 1000px !important;
-}
-
 body {
   overflow-y: auto !important;
 }
@@ -205,4 +201,16 @@ body {
 .type-price {
   width: 80px !important;
   margin-left: auto;
+}
+
+.modal-dialog {
+  margin: 5rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 600px !important;
+}
+
+.modal-content {
+  width: 700px !important;
+  height: 500px !important;
 }

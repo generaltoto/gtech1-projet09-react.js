@@ -1,11 +1,10 @@
-import { Card } from 'react-bootstrap'
+import { ListGroup} from 'react-bootstrap'
 
 function ArticleInCart(props){
   return(
-    <Card>
-      <Card.Header> <Card.Title>{props.cart.attributes.name}</Card.Title> </Card.Header>
-      <Card.Body> <Card.Text>{props.cart.attributes.price}</Card.Text> </Card.Body>
-    </Card>
+    <ListGroup>
+      <ListGroup.Item>{props.cart.attributes.name} : {props.cart.attributes.price}€</ListGroup.Item>
+    </ListGroup>
   );
 }
 

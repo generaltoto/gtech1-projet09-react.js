@@ -3,7 +3,8 @@ import {
   Card,
   Button,
   Modal,
-  Divider
+  Row,
+  Col
 } from 'react-bootstrap'
 
 function Article(props){
@@ -24,16 +25,27 @@ function Article(props){
         </Card>
 
         <Modal className='modal-article' show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{props.stone.attributes.name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{props.stone.attributes.description}</Modal.Body>
-        <Modal.Footer>
-          <Button variant="outline-info" onClick={()=>props.addArticle(props.stone)}>
-            Add to cart
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          <Modal.Header closeButton className='center-align'>
+            <Modal.Title>{props.stone.attributes.name} : {props.stone.attributes.price}€</Modal.Title>
+          </Modal.Header>
+          
+          <Modal.Body>
+            <Row>
+              <Col>
+                {props.stone.attributes.description}
+              </Col>
+              <Col>
+                <Card.Img className='img-article' variant="top" src={props.stone.attributes.img && "http://localhost:1337"+props.stone.attributes.img.data.attributes.url} />
+              </Col>
+            </Row>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button variant="outline-info" onClick={()=>props.addArticle(props.stone)}>
+              Add to cart
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </>
     );
 }

@@ -70,6 +70,7 @@ class App extends Component {
             cart={this.state.cart} 
             addArticle={this.addArticle}
             getArticle={this.getArticle}
+            postCommand={this.postCommand}
           />}
           />
         </Routes>

@@ -15,7 +15,7 @@ function Store(props){
 
   const [search, setQuery] = useState("")
   const [price, setPrice] = useState(12000)
-  const [mohs, setMohs] = useState(10)
+  const [mohs, setMohs] = useState(0)
 
   let filteredStones = props.stone.data
 
@@ -26,8 +26,8 @@ function Store(props){
     if(price<10000){
       filteredStones = filteredStones.filter(stones => stones.attributes.price <= price)
     }
-    if(mohs<10){
-      filteredStones = filteredStones.filter(stones => stones.attributes.mohs <= mohs)
+    if(mohs>0){
+      filteredStones = filteredStones.filter(stones => stones.attributes.mohs >= mohs)
     }
   }
       return (
@@ -37,6 +37,7 @@ function Store(props){
             stone={props.stone}
             addArticle={props.addArticle}
             getArticle={props.getArticle}
+            postcommand={props.postcommand}
           />
           <Parallax
             blur={5}
@@ -60,8 +61,8 @@ function Store(props){
                 </Form.Label>
                 <Form.Range value={price} max={12000}  onChange={event => setPrice(event.target.value)} />
                 <p>0 - 12000€</p>
-                <Form.Label className='form'>Max Mohs : {mohs}</Form.Label>
-                <Form.Range defaultValue={10} max={10} onChange={event => setMohs(event.target.value)}/>
+                <Form.Label className='form'>Min Mohs : {mohs}</Form.Label>
+                <Form.Range defaultValue={0} max={10} onChange={event => setMohs(event.target.value)}/>
                 <p>0 - 10</p>
               </Container>
             </Col>
