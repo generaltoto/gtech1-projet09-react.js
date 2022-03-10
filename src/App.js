@@ -85,6 +85,7 @@ class App extends Component {
             addArticle={this.addArticle}
             getArticle={this.getArticle}
             removeArticle={this.removeArticle}
+            postCommand={this.postCommand}
           />}
           />
         </Routes>

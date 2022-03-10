@@ -162,10 +162,11 @@ body {
 
 .canceled {
   margin-right: 0px !important;
+  background-color: rgba(212, 212, 212, 0.2) !important;
 }
 
 .titles {
-  color: rgba(255, 255, 255,0.7);
+  color: rgba(87, 111, 126, 0.75);
   text-align: center;
   margin-top: 150px;
 }
@@ -181,13 +182,13 @@ body {
   border: 1px solid rgba(0,0,0,.5);
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
+  background-color: white !important;
 }
 
 
 /* FOOTER */
 
 .footer {
-  margin-top: 250px;
   height: 350px;
   background-color: var(--footerColor);
 }
@@ -195,6 +196,10 @@ body {
 .bot-footer {
   height: 50px;
   background-color: var(--footerColor);
+}
+
+body {
+  overflow-y: auto !important;
 }
 
 .modal-article {
@@ -214,4 +219,16 @@ body {
 .type-price {
   width: 80px !important;
   margin-left: auto;
+}
+
+.modal-dialog {
+  margin: 5rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 600px !important;
+}
+
+.modal-content {
+  width: 700px !important;
+  height: 500px !important;
 }
