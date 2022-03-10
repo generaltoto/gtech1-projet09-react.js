@@ -40,7 +40,7 @@ class App extends Component {
     );
   }
 
-  removeArticle = (articleToRemove) => {
+  removeArticle = async (articleToRemove) => {
     let index = this.state.cart.findIndex(item => item === articleToRemove)
     const tempCart = [...this.state.cart]
     if (index >= 0) {
@@ -84,8 +84,8 @@ class App extends Component {
             cart={this.state.cart} 
             addArticle={this.addArticle}
             getArticle={this.getArticle}
-            postCommand={this.postCommand}
             removeArticle={this.removeArticle}
+            postCommand={this.postCommand}
           />}
           />
         </Routes>

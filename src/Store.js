@@ -37,6 +37,7 @@ function Store(props){
             addArticle={props.addArticle}
             getArticle={props.getArticle}
             postcommand={props.postcommand}
+            removeArticle={props.removeArticle}
           />
           <Parallax
             blur={5}
