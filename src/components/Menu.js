@@ -27,7 +27,6 @@ function Menu(props) {
   const [show, setShow] = useState(false);
   const [usedname, setUsedname] = useState("");
   const globalprice = props.getArticle().reduce((previous, next) => previous + next, 0);
-  console.log(props.getArticle());
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 

@@ -40,7 +40,7 @@ class App extends Component {
     );
   }
 
-  removeArticle = (articleToRemove) => {
+  removeArticle = async (articleToRemove) => {
     let index = this.state.cart.findIndex(item => item === articleToRemove)
     const tempCart = [...this.state.cart]
     if (index >= 0) {
