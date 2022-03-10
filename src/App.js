@@ -23,6 +23,11 @@ class App extends Component {
     const reponse = await fetch('http://localhost:1337/api/gemstones?populate=*',{method:'GET', headers: {'Accept': 'application/json', 'Content-Type':'application/json'}})
     const stones = await reponse.json()
     this.setState({stone:stones, loading:false})
+    if (localStorage.getItem('cart') !== null) {
+      this.setState({
+        cart: JSON.parse(localStorage.getItem('cart'))
+      })
+    }
   }
 
   addArticle = async (stone) =>{
@@ -31,10 +36,19 @@ class App extends Component {
         ...this.state.cart,
         stone
       ]
-    },()=>{
-      console.log(this.state.cart)
-      localStorage.setItem('cart', JSON.stringify(this.state.cart))
-    });
+    },()=>{ localStorage.setItem('cart', JSON.stringify(this.state.cart))}
+    );
+  }
+
+  removeArticle = (articleToRemove) => {
+    let index = this.state.cart.findIndex(item => item === articleToRemove)
+    const tempCart = [...this.state.cart]
+    if (index >= 0) {
+      tempCart.splice(index, 1)
+      this.setState({
+        cart: [...tempCart]
+      }, () => localStorage.setItem('cart', JSON.stringify(this.state.cart)))
+    }
   }
 
   postCommand = async (name,globalprice) => {
@@ -71,6 +85,7 @@ class App extends Component {
             addArticle={this.addArticle}
             getArticle={this.getArticle}
             postCommand={this.postCommand}
+            removeArticle={this.removeArticle}
           />}
           />
         </Routes>

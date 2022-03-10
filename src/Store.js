@@ -6,7 +6,7 @@ import {
   Col,
   Form
 } from 'react-bootstrap'
-import Article from './components/Article';
+import Article from './components/article/Article';
 import { Parallax } from 'react-parallax';
 import {useState} from "react";
 
@@ -49,40 +49,42 @@ function Store(props){
             </div>
             <div style={{ height: '250px' }} />
           </Parallax>
-          <Row id='articles' className='canceled'>
-          <div style={{ height: '100px' }} />
-            <Col xs={3} className='filters'>
-              <Container>
-                <h4>Add filters</h4>
-                <Form.Control className="me-auto" placeholder="Search by name ..." onChange={event => setQuery(event.target.value)} />
-                <Form.Label className='form'>Max Price : 
-                  <Form.Control value={price} className="me-auto type-price" onChange={event => setPrice(event.target.value)} />
-                </Form.Label>
-                <Form.Range value={price} max={12000}  onChange={event => setPrice(event.target.value)} />
-                <p>0 - 12000€</p>
-                <Form.Label className='form'>Min Mohs : {mohs}</Form.Label>
-                <Form.Range defaultValue={0} max={10} onChange={event => setMohs(event.target.value)}/>
-                <p>0 - 10</p>
-              </Container>
-            </Col>
+          <Container fluid>
+            <Row id='articles' className='canceled backfont'>
+            <div style={{ height: '100px' }} />
+              <Col xs={3} className='filters'>
+                <Container>
+                  <h4>Add filters</h4>
+                  <Form.Control className="me-auto" placeholder="Search by name ..." onChange={event => setQuery(event.target.value)} />
+                  <Form.Label className='form'>Max Price : 
+                    <Form.Control value={price} className="me-auto type-price" onChange={event => setPrice(event.target.value)} />
+                  </Form.Label>
+                  <Form.Range value={price} max={12000}  onChange={event => setPrice(event.target.value)} />
+                  <p>0 - 12000€</p>
+                  <Form.Label className='form'>Min Mohs : {mohs}</Form.Label>
+                  <Form.Range defaultValue={0} max={10} onChange={event => setMohs(event.target.value)}/>
+                  <p>0 - 10</p>
+                </Container>
+              </Col>
 
-            <Col xs={12} md={9}>
-              <Container className='all-articles'>
-                <Row>
-                  {/*props.loading =>   
-                     <Spinner animation="grow" />
-                  */}
-                  {/*pour afficher en tableau simple les articles*/}
-                  {filteredStones && filteredStones.map((stones, i)=>(
-                      <Col className='article' key={i}>
-                        <Article stone={stones} addArticle={props.addArticle}/>
-                      </Col>
-                    ))}
-                  {/*Mettre les artciles en paramètres*/}
-                </Row>
-              </Container>
-            </Col>
-          </Row>
+              <Col xs={12} md={9}>
+                <Container className='all-articles'>
+                  <Row>
+                    {/*props.loading =>   
+                      <Spinner animation="grow" />
+                    */}
+                    {/*pour afficher en tableau simple les articles*/}
+                    {filteredStones && filteredStones.map((stones, i)=>(
+                        <Col className='article' key={i}>
+                          <Article stone={stones} addArticle={props.addArticle}/>
+                        </Col>
+                      ))}
+                    {/*Mettre les artciles en paramètres*/}
+                  </Row>
+                </Container>
+              </Col>
+            </Row>
+          </Container>
           <div style={{ height: '150px' }} className='canceled' />
           <Footer />
         </>

@@ -5,7 +5,8 @@
   --h2Size: 75px;
 
   --navbarColor: rgba(255, 255, 255, 0.6);
-  --footerColor: rgba(44, 51, 53, 0.6);
+  --footerColor: #37474f ;
+  --footerBotColor: #263238;
   --navbarTextColor: rgb(75, 75, 75);
 
   --cardBorder: 3px solid rgba(0,0,0,.4);
@@ -162,6 +163,9 @@ body {
 
 .canceled {
   margin-right: 0px !important;
+}
+
+.backfont {
   background-color: rgba(212, 212, 212, 0.2) !important;
 }
 
@@ -195,7 +199,12 @@ body {
 
 .bot-footer {
   height: 50px;
-  background-color: var(--footerColor);
+  background-color: var(--footerBotColor);
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10px;
 }
 
 body {
