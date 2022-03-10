@@ -45,7 +45,7 @@ function Menu(props) {
       <Modal.Footer>
         <Form.Control className="me-auto" placeholder="Enter your name to command" onChange={event => setUsedname(event.target.value)} required />
         <p>Total :</p> {props.globalprice} <p>€</p>
-        <Button variant="primary" onClick={()=>props.postCommand(usedname),close}>
+        <Button variant="primary" onClick={()=>props.postCommand(usedname)}>
           Command
         </Button>
         <Button variant='outline-info' onClick={close}>Close</Button>
