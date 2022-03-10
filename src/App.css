@@ -34,6 +34,39 @@
   background: #434343;
 }
 
+/* GENERAL */
+
+p {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 5px !important;
+  font-weight: normal !important;
+}
+
+h1 {
+  font-size: var(--h1Size) !important;
+  font-family: var(--tittleFont);
+}
+
+h2 {
+  font-size: var(--h2Size) !important;
+}
+
+h3 {
+  text-align: center !important;
+  margin-top: 20px !important;
+}
+
+h4 {
+  text-align: center !important;
+  margin: 20px;
+  font-family: var(--tittleFont);
+}
+
+body {
+  overflow-y: auto !important;
+}
+
 
 /* NAVBAR */
 
@@ -44,32 +77,36 @@
   z-index: 1 !important;
 }
 
-.navbar-text, .navbar-icon {
+.nav-title-container {
+  margin-left: 43%;
+}
+
+.navbar-text, .navbar-icon, .dropdown-toggle {
   color: var(--navbarTextColor) !important;
   text-decoration: none !important;
-  font-weight: bold;
-
-  position: relative;
+  font-weight: bold !important;
 
   transition: var(--hoverEffectTime);
+
+  background-color: transparent !important;
+  border-color: transparent !important;
 }
 
 .navbar-text {
   font-size: 45px;
-  margin-right: 81vh;
 }
 
 
 /* DROPDOWN */
-
-.dropdown {
-  width: auto !important;
+.dropdown-container{
+  margin-right: 0px !important;
+}
+.dropdown-toggle{
+  font-size: 25px !important;
 }
 
-.dropdown-toggle {
-  background-color: transparent !important;
-  border-color: transparent !important;
-  margin-right: 2vh;
+.dropdown {
+  width: 400px !important;
 }
 
 .dropdown-header {
@@ -138,33 +175,6 @@
   transition: var(--hover);
 }
 
-p {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 5px !important;
-  font-weight: normal !important;
-}
-
-h1 {
-  font-size: var(--h1Size) !important;
-  font-family: var(--tittleFont);
-}
-
-h2 {
-  font-size: var(--h2Size) !important;
-}
-
-h3 {
-  text-align: center !important;
-  margin-top: 20px !important;
-}
-
-h4 {
-  text-align: center !important;
-  margin: 20px;
-  font-family: var(--tittleFont);
-}
-
 .all-articles {
   height: 575px;
   overflow-y: scroll;
@@ -172,6 +182,9 @@ h4 {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
+
+
+/* FOOTER */
 
 .footer {
   margin-top: 250px;
@@ -186,6 +199,10 @@ h4 {
 
 body {
   overflow-y: auto !important;
+}
+
+.modal-article {
+  max-width: 1000px !important;
 }
 
 .center-align {

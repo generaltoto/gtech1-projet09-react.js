@@ -1,11 +1,16 @@
 import { 
+  Navbar,
   Nav,
   Dropdown,
   Container,
   Row,
   Col,
+<<<<<<< HEAD
   Modal,
   Form,
+=======
+  DropdownButton,
+>>>>>>> 53bef180c593a24a0741d8fc0f2c4201a9e0b7a7
   Button
 } from 'react-bootstrap'
 import { Link } from "react-router-dom";
@@ -27,20 +32,39 @@ function Menu(props) {
 
   return (
     <>
-      <Nav className="justify-content-end navbar" activeKey="/home">
-        <Nav.Item>
-          <Link className="navbar-text justify-content-start" to='/'>MineStone</Link>
-        </Nav.Item>
-        <Nav.Item className="justify-content-end">
-          <Dropdown>
-            <Dropdown.Toggle className="dropdown-toggle">
-              <Link className="navbar-icon" to={'/'}><FontAwesomeIcon icon={faCartShopping} size='2x' /></Link>
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu className="dropdown">
-              <Dropdown.Header className="dropdown-header">Your Cart</Dropdown.Header>
-              <Container>
+    <Navbar className='navbar'>
+      <Nav className='nav-title-container'>
+        <Nav.Item className="navbar-text">MineStone</Nav.Item>
+      </Nav>
+      <Container className="mb-2 justify-content-end dropdown-container">
+        <DropdownButton
+          key={'start'}
+          id={`dropdown-button-drop-start`}
+          drop={'start'}
+          title={`Cart`}
+        >
+          <Nav.Item className='dropdown'>
+            <Dropdown.Header className="dropdown-header">Your Cart</Dropdown.Header>
+            <Container>
+              <Row>
+              {props.cart.length>0 && props.cart.map((data, i)=>(
+                <Col xs={12} className='article' key={i}><ArticleInCart cart={data}/></Col>))}
+                
+                <Dropdown.Divider/>
                 <Row>
+                <Col xs={6}><Button>See Cart</Button></Col>
+                  <Col><Button onClick={() => localStorage.clear()}>Clear Cart</Button></Col>
+                </Row>
+                
+                {/* <button onClick={() => console.log(props.getArticle())}> Check Article </button>
+                <button onClick={() => localStorage.clear()}> Clear Cart </button> */}
+              </Row>
+            </Container>
+          </Nav.Item>
+        </DropdownButton>
+      </Container>
+    </Navbar>
+    {/*
                   {props.getArticle() && props.getArticle().map((data)=>(
                     <Col className='article'><ArticleInCart cart={data}/></Col>
                   ))}
@@ -53,6 +77,8 @@ function Menu(props) {
           </Dropdown>
         </Nav.Item>
       </Nav>
+                  */}
+      
 
       <Modal className='modal-cart' show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -71,6 +97,7 @@ function Menu(props) {
           </Button>
         </Modal.Footer>
       </Modal>
+                  
     </>
   )
 }

@@ -33,8 +33,7 @@ function Store(props){
       return (
         <>
           <Menu 
-            cart={props.cart} 
-            stone={props.stone}
+            cart={props.cart}
             addArticle={props.addArticle}
             getArticle={props.getArticle}
             postcommand={props.postcommand}
