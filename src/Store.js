@@ -6,7 +6,7 @@ import {
   Col,
   Form
 } from 'react-bootstrap'
-import Article from './components/Article';
+import Article from './components/article/Article';
 import { Parallax } from 'react-parallax';
 import {useState} from "react";
 
