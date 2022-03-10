@@ -77,32 +77,36 @@ body {
   z-index: 1 !important;
 }
 
-.navbar-text, .navbar-icon {
+.nav-title-container {
+  margin-left: 43%;
+}
+
+.navbar-text, .navbar-icon, .dropdown-toggle {
   color: var(--navbarTextColor) !important;
   text-decoration: none !important;
-  font-weight: bold;
-
-  position: relative;
+  font-weight: bold !important;
 
   transition: var(--hoverEffectTime);
+
+  background-color: transparent !important;
+  border-color: transparent !important;
 }
 
 .navbar-text {
   font-size: 45px;
-  margin-right: 81vh;
 }
 
 
 /* DROPDOWN */
-
-.dropdown {
-  width: 500px !important;
+.dropdown-container{
+  margin-right: 0px !important;
+}
+.dropdown-toggle{
+  font-size: 25px !important;
 }
 
-.dropdown-toggle {
-  background-color: transparent !important;
-  border-color: transparent !important;
-  margin-right: 2vh;
+.dropdown {
+  width: 400px !important;
 }
 
 .dropdown-header {
