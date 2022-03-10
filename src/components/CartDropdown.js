@@ -29,7 +29,7 @@ function CartDropdown (props) {
               <Dropdown.Text>TOTAL : {Number(props.cart.)}</Dropdown.Text> */}
               <Dropdown.Divider/>
               <Row>
-                <Col className='text-center' xs={6}><Button onClick={props.disp}>See Cart</Button></Col>
+                <Col className='text-center' xs={{span: 4, offset:9}}><Button variant='alert' onClick={props.disp}>See Cart</Button></Col>
               </Row>
 
             </Row>

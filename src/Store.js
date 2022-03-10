@@ -5,7 +5,6 @@ import {
   Row,
   Col,
   Form,
-  Spinner
 } from 'react-bootstrap'
 import Article from './components/article/Article';
 import Loader from './components/Loader'

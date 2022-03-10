@@ -9,10 +9,6 @@ import {
 } from 'react-bootstrap'
 import { useState } from 'react';
 
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
-
-
 import CartDropdown from './CartDropdown';
 import ArticleInModal from './article/ArticleInModal'
 
@@ -35,11 +31,9 @@ function Menu(props) {
     </Navbar>
 
     <Modal
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
       show={open}
-      onHide={close} >
+      onHide={close}
+      className='modal-cart' >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter"> Your Cart </Modal.Title>
       </Modal.Header>
@@ -56,29 +50,7 @@ function Menu(props) {
         </Button>
         <Button variant='outline-info' onClick={close}>Close</Button>
       </Modal.Footer>
-    </Modal>
-
-    {/*
-    <Modal className='modal-cart' show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Cart</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        {props.getArticle() && props.getArticle().map((data, i)=>(
-          <Col className='article' key={i}><ArticleInCart cart={data}/></Col>
-        ))}
-        <Form.Control value={globalprice} className="type-price" />
-        <Form.Control className="me-auto" placeholder="Enter your name to command" onChange={event => setUsedname(event.target.value)} required />
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="outline-info" onClick={()=>props.postCommand(usedname, globalprice)}>
-          Command
-        </Button>
-      </Modal.Footer>
-    </Modal>
-
-        */}
-                  
+    </Modal>      
     </>
   )
 }
