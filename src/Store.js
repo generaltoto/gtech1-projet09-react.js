@@ -49,8 +49,8 @@ function Store(props){
             </div>
             <div style={{ height: '250px' }} />
           </Parallax>
-          <div style={{ height: '100px' }} />
           <Row id='articles' className='canceled'>
+          <div style={{ height: '100px' }} />
             <Col xs={3} className='filters'>
               <Container>
                 <h4>Add filters</h4>
@@ -83,6 +83,7 @@ function Store(props){
               </Container>
             </Col>
           </Row>
+          <div style={{ height: '150px' }} className='canceled' />
           <Footer />
         </>
       );

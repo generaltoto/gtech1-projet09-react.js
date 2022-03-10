@@ -5,12 +5,9 @@ import {
   Container,
   Row,
   Col,
-<<<<<<< HEAD
   Modal,
   Form,
-=======
   DropdownButton,
->>>>>>> 53bef180c593a24a0741d8fc0f2c4201a9e0b7a7
   Button
 } from 'react-bootstrap'
 import { Link } from "react-router-dom";
@@ -49,11 +46,11 @@ function Menu(props) {
               <Row>
               {props.cart.length>0 && props.cart.map((data, i)=>(
                 <Col xs={12} className='article' key={i}><ArticleInCart cart={data}/></Col>))}
-                
                 <Dropdown.Divider/>
+                
                 <Row>
-                <Col xs={6}><Button>See Cart</Button></Col>
-                  <Col><Button onClick={() => localStorage.clear()}>Clear Cart</Button></Col>
+                  <Col xs={6}><Button onClick={handleShow}>See Cart</Button></Col>
+                    <Col><Button onClick={() => localStorage.clear()}>Clear Cart</Button></Col>
                 </Row>
                 
                 {/* <button onClick={() => console.log(props.getArticle())}> Check Article </button>
@@ -64,21 +61,6 @@ function Menu(props) {
         </DropdownButton>
       </Container>
     </Navbar>
-    {/*
-                  {props.getArticle() && props.getArticle().map((data)=>(
-                    <Col className='article'><ArticleInCart cart={data}/></Col>
-                  ))}
-                    
-                    <button onClick={handleShow}> Check Command </button>
-                    <button onClick={() => localStorage.clear()}> Clear Cart </button>
-                </Row>
-              </Container>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Nav.Item>
-      </Nav>
-                  */}
-      
 
       <Modal className='modal-cart' show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -89,7 +71,7 @@ function Menu(props) {
             <Col className='article'><ArticleInCart cart={data}/></Col>
           ))}
           <Form.Control value={globalprice} className="type-price" />
-          <Form.Control className="me-auto" placeholder="Enter your name ..." onChange={event => setUsedname(event.target.value)} required />
+          <Form.Control className="me-auto" placeholder="Enter your name to command" onChange={event => setUsedname(event.target.value)} required />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-info" onClick={()=>props.postCommand(usedname, globalprice)}>
