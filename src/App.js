@@ -5,7 +5,6 @@ import {React, Component} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Store from './Store';
-import { clear } from '@testing-library/user-event/dist/clear';
 
 
 class App extends Component {
@@ -15,6 +14,7 @@ class App extends Component {
     this.state = {
       stone : [],
       cart : [],
+      globalprice : 0,
       loading:true
     }
   };
@@ -25,8 +25,11 @@ class App extends Component {
     this.setState({stone:stones, loading:false})
     if (localStorage.getItem('cart') !== null) {
       this.setState({
-        cart: JSON.parse(localStorage.getItem('cart'))
+        cart: JSON.parse(localStorage.getItem('cart')),
       })
+    } 
+    if (localStorage.getItem('globalprice') !== null){
+      this.setState({globalprice: JSON.parse((localStorage.getItem('globalprice')))})
     }
   }
 
@@ -35,8 +38,9 @@ class App extends Component {
       cart:[
         ...this.state.cart,
         stone
-      ]
-    },()=>{ localStorage.setItem('cart', JSON.stringify(this.state.cart))}
+      ],
+      globalprice : this.state.globalprice + stone.attributes.price
+    },()=> localStorage.setItem('cart', JSON.stringify(this.state.cart)), ()=>{localStorage.setItem('globalprice', JSON.stringify(this.state.globalprice))}
     );
   }
 
@@ -46,24 +50,28 @@ class App extends Component {
     if (index >= 0) {
       tempCart.splice(index, 1)
       this.setState({
-        cart: [...tempCart]
-      }, () => localStorage.setItem('cart', JSON.stringify(this.state.cart)))
-    }
+        cart: [...tempCart],
+        globalprice : this.state.globalprice - articleToRemove.attributes.price
+      }, () => localStorage.setItem('cart', JSON.stringify(this.state.cart)), ()=>localStorage.setItem('globalprice', JSON.stringify(this.state.globalprice)))
   }
+}
 
-  postCommand = async (name,globalprice) => {
+  postCommand = async (name) => {
     if(!localStorage.getItem('cart')){
       return []
     }
+    const data = {
+      gemstones:localStorage.getItem('cart'),
+      name:name,
+      globalprice:localStorage.getItem('globalprice')
+    };
     const reponse = await fetch('http://localhost:1337/api/commands',{
       method:'POST', 
       headers: {'Accept': 'application/json', 'Content-Type':'application/json'},
-      body:{
-        gemstones:localStorage.getItem('cart'),
-        name:name,
-        globalprice:globalprice
-      }
+      body:{ data}
     })
+    localStorage.setItem('cart', JSON.stringify([]))
+    localStorage.setItem('globalprice', JSON.stringify(0))
   }
 
   getArticle() {
@@ -81,7 +89,8 @@ class App extends Component {
           <Route exact path='/' element={<Store 
             stone={this.state.stone} 
             loading={this.state.loading} 
-            cart={this.state.cart} 
+            cart={this.state.cart}
+            globalprice={this.state.globalprice}  
             addArticle={this.addArticle}
             getArticle={this.getArticle}
             removeArticle={this.removeArticle}

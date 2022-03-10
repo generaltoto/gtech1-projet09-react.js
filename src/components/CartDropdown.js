@@ -30,7 +30,6 @@ function CartDropdown (props) {
               <Dropdown.Divider/>
               <Row>
                 <Col className='text-center' xs={6}><Button onClick={props.disp}>See Cart</Button></Col>
-                <Col className='text-center'><Button>Clear Cart</Button></Col>
               </Row>
 
             </Row>

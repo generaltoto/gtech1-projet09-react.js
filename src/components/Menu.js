@@ -5,10 +5,8 @@ import {
   Modal,
   Form,
   Row,
-  DropdownButton,
   Button
 } from 'react-bootstrap'
-import { Link } from "react-router-dom";
 import { useState } from 'react';
 
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,7 +15,6 @@ import { useState } from 'react';
 
 import CartDropdown from './CartDropdown';
 import ArticleInModal from './article/ArticleInModal'
-import ArticleInCart from './article/ArticleInCart'
 
 function Menu(props) {
   //CART MODAL
@@ -26,11 +23,7 @@ function Menu(props) {
   const disp = () => opened(true);
 
   //ARTICLE MODAL
-  const [show, setShow] = useState(false);
   const [usedname, setUsedname] = useState("");
-  const globalprice = props.getArticle().reduce((previous, next) => previous + next, 0);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   return (
     <>
@@ -38,7 +31,7 @@ function Menu(props) {
       <Nav className='nav-title-container'>
         <Nav.Item className="navbar-text">MineStone</Nav.Item>
       </Nav>
-      <CartDropdown cart={props.cart} disp={disp}/>
+      <CartDropdown cart={props.cart} disp={disp} />
     </Navbar>
 
     <Modal
@@ -56,10 +49,16 @@ function Menu(props) {
         </Row>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={close}>Close</Button>
+        <Form.Control className="me-auto" placeholder="Enter your name to command" onChange={event => setUsedname(event.target.value)} required />
+        <p>Total :</p> {props.globalprice} <p>€</p>
+        <Button variant="primary" onClick={()=>props.postCommand(usedname),close}>
+          Command
+        </Button>
+        <Button variant='outline-info' onClick={close}>Close</Button>
       </Modal.Footer>
     </Modal>
 
+    {/*
     <Modal className='modal-cart' show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Cart</Modal.Title>
@@ -77,6 +76,8 @@ function Menu(props) {
         </Button>
       </Modal.Footer>
     </Modal>
+
+        */}
                   
     </>
   )

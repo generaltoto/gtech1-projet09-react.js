@@ -4,9 +4,11 @@ import {
   Container,
   Row,
   Col,
-  Form
+  Form,
+  Spinner
 } from 'react-bootstrap'
 import Article from './components/article/Article';
+import Loader from './components/Loader'
 import { Parallax } from 'react-parallax';
 import {useState} from "react";
 
@@ -34,9 +36,10 @@ function Store(props){
         <>
           <Menu 
             cart={props.cart}
+            globalprice={props.globalprice}
             addArticle={props.addArticle}
             getArticle={props.getArticle}
-            postcommand={props.postcommand}
+            postCommand={props.postCommand}
             removeArticle={props.removeArticle}
           />
           <Parallax
@@ -70,10 +73,8 @@ function Store(props){
 
               <Col xs={12} md={9}>
                 <Container className='all-articles'>
+                  <Loader loading={props.loading} />
                   <Row>
-                    {/*props.loading =>   
-                      <Spinner animation="grow" />
-                    */}
                     {/*pour afficher en tableau simple les articles*/}
                     {filteredStones && filteredStones.map((stones, i)=>(
                         <Col className='article' key={i}>

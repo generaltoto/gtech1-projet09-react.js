@@ -68,7 +68,6 @@ body {
   overflow-y: auto !important;
 }
 
-
 /* NAVBAR */
 
 .navbar {
@@ -207,12 +206,12 @@ body {
   margin-top: 10px;
 }
 
-body {
-  overflow-y: auto !important;
-}
-
 .modal-article {
   max-width: 1000px !important;
+}
+
+.modal-dialog-centered {
+  min-height: calc(70% - 2rem) !important;
 }
 
 .center-align {
@@ -234,10 +233,23 @@ body {
   margin: 5rem !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  max-width: 600px !important;
 }
 
 .modal-content {
   width: 700px !important;
-  height: 500px !important;
+  min-height: 500px !important;
+}
+
+.img-cart {
+  height: 40px;
+  width: 60px !important;
+  display: flex !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.dropdown {
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  max-height: 400px !important;
 }
