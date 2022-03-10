@@ -7,7 +7,8 @@
   --titleColor: rgba(87, 111, 126, 0.75);
 
   --navbarColor: rgba(255, 255, 255, 0.6);
-  --footerColor: rgba(44, 51, 53, 0.6);
+  --footerColor: #37474f ;
+  --footerBotColor: #263238;
   --navbarTextColor: rgb(75, 75, 75);
 
   --cardBorder: 3px solid rgba(0,0,0,.4);
@@ -74,7 +75,6 @@ h4 {
 body {
   overflow-y: auto !important;
 }
-
 
 /* NAVBAR */
 
@@ -220,6 +220,10 @@ body {
 .canceled {
   margin-right: 0px !important;
   background-color: rgba(212, 212, 212, 0.2) !important;
+}
+
+.modal-dialog-centered {
+  min-height: calc(70% - 2rem) !important;
 }
 
 .center-align {
