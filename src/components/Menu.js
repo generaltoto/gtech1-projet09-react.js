@@ -20,8 +20,8 @@ function Menu(props) {
         </Nav.Item>
         <Nav.Item className="justify-content-end">
           <Dropdown>
-            <Dropdown.Toggle className="dropdown-toggle" id={'dropdown-button-drop-sart'}>
-              <Link className="navbar-icon" to='/Store'><FontAwesomeIcon icon={faCartShopping} size='2x' /></Link>
+            <Dropdown.Toggle className="dropdown-toggle">
+              <Link className="navbar-icon" to={'/'}><FontAwesomeIcon icon={faCartShopping} size='2x' /></Link>
             </Dropdown.Toggle>
 
             <Dropdown.Menu className="dropdown">

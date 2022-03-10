@@ -37,6 +37,21 @@ class App extends Component {
     });
   }
 
+  postCommand = async (name,globalprice) => {
+    if(!localStorage.getItem('cart')){
+      return []
+    }
+    const reponse = await fetch('http://localhost:1337/api/commands',{
+      method:'POST', 
+      headers: {'Accept': 'application/json', 'Content-Type':'application/json'},
+      body:{
+        gemstones:localStorage.getItem('cart'),
+        name:name,
+        globalprice:globalprice
+      }
+    })
+  }
+
   getArticle() {
     if(!localStorage.getItem('cart')){
       return []
