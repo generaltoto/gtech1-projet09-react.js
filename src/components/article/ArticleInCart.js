@@ -4,7 +4,7 @@ function ArticleInCart(props){
   return(
     <>
       <ListGroup>
-        <ListGroup.Item>{props.cart.attributes.name} : {props.cart.attributes.price}€</ListGroup.Item>
+        <ListGroup.Item className=''>{props.cart.attributes.name} : {props.cart.attributes.price}€</ListGroup.Item>
       </ListGroup>
     </>
   );

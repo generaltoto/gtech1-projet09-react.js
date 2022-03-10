@@ -40,11 +40,9 @@ function Menu(props) {
     </Navbar>
 
     <Modal
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
       show={open}
-      onHide={close} >
+      onHide={close}
+      className='modal-cart' >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter"> Your Cart </Modal.Title>
       </Modal.Header>
@@ -58,7 +56,7 @@ function Menu(props) {
       </Modal.Footer>
     </Modal>
 
-    <Modal className='modal-cart' show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Cart</Modal.Title>
       </Modal.Header>
